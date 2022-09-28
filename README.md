@@ -9,7 +9,7 @@ The purpose of this election audit analysis is to further insight on the congres
 
 
 * **How many votes were cast in this congressional election?**   
-A total of 369,711 votes were cast in the congretional election.
+A total of 369,711 votes were cast in the congretional election. 
 
 * **Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.**  
 Denver county saw the largest turnout of votes at 306,055 votes, making up 82.8% of the total votes. Jefferson county had 38,855 votes, making up 8% of the total votes. Lastly, Arapahoe had 24,801 votes, making up 6.7% of the total votes.
@@ -20,6 +20,20 @@ Diana DeGette, the winner of the election, received a total of 272,892 votes, wh
 * **Which candidate won the election, what was their vote count, and what was their percentage of the total votes?**  
 Diana DeGette won the election. She received a total of 272,892 votes, which made up 73.8% of the total votes.
 ## Election-Audit Summary
-This election-audit script proved to be useful in determining the outcome of the election. It calculated the total votes, breakdown by county of number of votes, breakdown by county by percentage of votes, breakdown of candidate by number of votes, breakdown of candidate by percentage of votes. It also detailed the County with the largest turnout, along with the winning candide along with their winning vote coun and winning percentage count. I believe this script can be reutilized for future election to make the process of determining the winner and the county with largest turnout more efficient.
+This election-audit script proved to be useful in determining the outcome of the election. It calculated the total votes, breakdown by county of number of votes, breakdown by county by percentage of votes, breakdown of candidate by number of votes, breakdown of candidate by percentage of votes. It also detailed the county with the largest turnout, along with the winning candide along with their winning vote coun and winning percentage count. I believe this script can be reutilized for future election to make the process of determining the winner and the county with largest turnout more efficient.
 
-To reutilize, we would require a csv file with similar formatting to use when adding a variable to load file from a path and ensure this is updated on each line needed. We would also want to creat a new file to save to so that we can keep the original intact, and ensure that this is updated on each line needed. If the formating looks different on a future csv file, we would need to update the script where we extract the candidate name and county name to the proper column number.
+To reutilize, it would be best to use a csv file with similar formatting to use when adding a variable to load file from a path and ensure this is updated on each line needed. 
+
+`file_to_load = os.path.join("resources", "election_results.csv")`
+
+We would also want to create a new file to save to, so that we can keep the original intact, and ensure that this is updated on each line needed. 
+
+`file_to_save = os.path.join("analysis", "election_analysis.txt")`
+
+If the formating is different on a future csv file, we would need to update the script where we extract the candidate name and county name to the proper column number. For example if the candidate name is in a row other than 2, and the county name is in a row other than 1. We would need to change the assigned rows in the code. An alternate solution would be to reformat the row placement in the csv file. 
+
+        `# Get the candidate name from each row.
+        candidate_name = row[2]
+
+        # 3: Extract the county name from each row.
+        county_name = row[1]`
